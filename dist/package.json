@@ -1,0 +1,55 @@
+{
+  "name": "n8n-nodes-crawl4ai-custom",
+  "version": "1.0.0",
+  "description": "Custom n8n node for Crawl4AI web scraping with AI-powered extraction",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "crawl4ai",
+    "web-scraping",
+    "ai-extraction"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/yourusername/n8n-nodes-crawl4ai",
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/n8n-nodes-crawl4ai.git"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && mkdir -p dist/nodes/Crawl4aiCustom && cp src/icons/crawl4ai.svg dist/nodes/Crawl4aiCustom/ && cp package.json dist/ && cp index.js dist/",
+    "dev": "tsc --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials package.json",
+    "lintfix": "eslint nodes credentials package.json --fix",
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.json nodes credentials package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/Crawl4AIApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Crawl4aiCustom/Crawl4aiCustom.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "^8.52.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.0",
+    "n8n-workflow": "^1.82.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "^1.82.0"
+  }
+}
